@@ -146,3 +146,80 @@ button:hover {
 .button-instagram:hover {
   background-color: #555;
 }
+
+.cart-dropdown {
+  position: absolute;
+  top: 60px; /* Adjust based on your header height */
+  right: 20px; /* Adjust based on your layout */
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 250px; /* Adjust based on your preference */
+  max-height: 400px; /* Limits the height if there are many items */
+  overflow-y: auto; /* Adds scroll if needed */
+  z-index: 1000; /* Ensures it appears above other content */
+}
+
+.cart-dropdown h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.cart-dropdown .product {
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-dropdown .product:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .cart-dropdown {
+    width: 200px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-dropdown {
+    width: 100%;
+    max-width: 300px; /* Ensure it doesn’t become too wide */
+  }
+}
+
+.cart-dropdown .product {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.cart-dropdown .product img {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  border-radius: 5px;
+  margin-right: 10px;
+  object-fit: cover; /* Ensures the image fits within the specified dimensions */
+}
+
+.cart-dropdown .product h5 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.cart-dropdown .product h6 {
+  font-size: 0.8rem;
+  margin: 5px 0 0;
+  color: #666;
+}

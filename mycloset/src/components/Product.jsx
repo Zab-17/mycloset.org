@@ -1,10 +1,12 @@
-function Product(props) {
+function Product({ img, name, quantity, price, click }) {
   return (
     <div className="product">
-      <img src={props.img} alt={props.name} />
-      <h5>{props.name}</h5>
-      <h6>{props.price}</h6>
-      <button>Add to Cart</button>
+      <img src={img} alt={name} />
+      <h5>{name}</h5>
+      <h5>{quantity}</h5>
+      <h6>{price}</h6>
+
+      <button onClick={click}>Add to Cart</button>
     </div>
   );
 }
