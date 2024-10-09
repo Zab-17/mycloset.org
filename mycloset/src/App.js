@@ -7,25 +7,24 @@ import Footer from "./components/Footer";
 import { useState } from "react";
 
 function App() {
-  const [cart, setCart] = useState([]); // Initialize cart as an empty array
+  // const [cart, setCart] = useState([]); // Initialize cart as an empty array
 
-  function addToCart(product) {
-    console.log("Adding to cart:", product);
-    setCart((prevCart) => {
-      return [...prevCart, product];
-    });
-  }
+  // function addToCart(product) {
+  //   setCart((prevCart) => {
+  //     return [...prevCart, product];
+  //   });
+  // }
 
   return (
     <div className="App">
-      <Header cart={cart} />
+      <Header />
       {clothes.map((object) => (
         <Product
           key={object.id}
           img={object.img}
           name={object.name}
           price={object.price}
-          click={() => addToCart(object)} // Pass the function with the current product
+          // click={() => addToCart(object)} // Pass the function with the current product
         />
       ))}
 

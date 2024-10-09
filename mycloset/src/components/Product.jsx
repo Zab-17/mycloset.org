@@ -6,7 +6,7 @@ function Product({ img, name, quantity, price, click }) {
       <h5>{quantity}</h5>
       <h6>{price}</h6>
 
-      <button onClick={click}>Add to Cart</button>
+      {/* <button onClick={click}>Add to Cart</button> */}
     </div>
   );
 }
