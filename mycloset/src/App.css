@@ -1,45 +1,40 @@
+/* Global */
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
+  min-height: 100vh; /* Ensures the body stretches to the full height of the screen */
 }
 
+/* Header */
 .header-container {
   display: flex;
-  justify-content: center; /* Center the title */
+  justify-content: center;
   align-items: center;
   background-color: #000;
   color: #fff;
-  padding: 30px;
-  box-sizing: border-box;
+  padding: 20px;
   width: 100%;
-  margin: 0;
-  position: fixed; /* Keep the header fixed */
-  top: 0; /* Position at the top */
-  left: 0; /* Ensure it starts from the left */
-  z-index: 1001; /* Ensure it’s above the slide menu */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  border-bottom: 2px solid #fff;
 }
 
 .header-container header {
-  font-size: 2.5rem;
-  letter-spacing: 2px;
-}
-
-.site-title {
-  font-size: 2.5rem; /* Title size */
-  letter-spacing: 2px;
-  flex: 1; /* Take remaining space */
-  text-align: center; /* Center the title */
-  margin: 0; /* Ensure no margin affects positioning */
-  position: relative; /* Can also use fixed if necessary */
+  font-size: 3.2rem;
+  font-weight: bold;
+  font-family: "Playfair Display", serif; /* More elegant font */
+  letter-spacing: 3px;
 }
 
 .button-header {
@@ -50,10 +45,10 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: auto;
   transition: background-color 0.3s ease;
   display: flex;
   gap: 10px;
-  margin-left: auto;
   align-items: center;
 }
 
@@ -61,57 +56,77 @@ body {
   background-color: #555;
 }
 
-button:hover {
-  background-color: #555;
+/* "Open Menu" Button */
+.menu-toggle {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1002;
 }
 
+.menu-toggle:hover {
+  background-color: #333;
+}
+
+/* Main Content */
 .App {
-  flex: 1; /* This allows the main content to grow and push the footer to the bottom */
+  flex: 1; /* This ensures the main content takes up all available space above the footer */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20px;
-  margin-top: 100px;
+  padding: 30px;
+  margin-top: 120px; /* Give space for the fixed header */
 }
 
 .product {
   width: 22%;
-  box-sizing: border-box;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
   background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .product img {
   width: 100%;
-  height: auto;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .product h5 {
-  font-size: 1rem;
-  color: #333;
-  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #000;
+  margin-bottom: 5px;
 }
 
 .product h6 {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #555;
-  margin: 10px 0;
 }
 
 .product button {
   background-color: #000;
   color: #fff;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
   transition: background-color 0.3s ease;
 }
 
@@ -119,200 +134,92 @@ button:hover {
   background-color: #333;
 }
 
-@media (max-width: 768px) {
-  .product {
-    width: 48%;
-  }
-}
-
-@media (max-width: 480px) {
-  .product {
-    width: 100%;
-  }
-}
-
-/* Footer styles */
-.footer {
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-top: 2px solid #fff;
-  width: 100%;
-}
-
-/* Styles for the button */
-.button-instagram {
-  background-color: #000;
-  color: #f5f5f5;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.button-instagram:hover {
-  background-color: #555;
-}
-
-.cart-dropdown {
-  position: absolute;
-  top: 60px; /* Adjust based on your header height */
-  right: 20px; /* Adjust based on your layout */
-  background-color: #fff;
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 250px; /* Adjust based on your preference */
-  max-height: 400px; /* Limits the height if there are many items */
-  overflow-y: auto; /* Adds scroll if needed */
-  z-index: 1000; /* Ensures it appears above other content */
-}
-
-.cart-dropdown h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-
-.cart-dropdown .product {
-  width: 100%;
-  margin: 0;
-  box-shadow: none;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.cart-dropdown .product:last-child {
-  border-bottom: none;
-}
-
-@media (max-width: 768px) {
-  .cart-dropdown {
-    width: 200px; /* Adjust for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .cart-dropdown {
-    width: 100%;
-    max-width: 300px; /* Ensure it doesn’t become too wide */
-  }
-}
-
-.cart-dropdown .product {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.cart-dropdown .product img {
-  width: 50px; /* Adjust size as needed */
-  height: auto;
-  border-radius: 5px;
-  margin-right: 10px;
-  object-fit: cover; /* Ensures the image fits within the specified dimensions */
-}
-
-.cart-dropdown .product h5 {
-  font-size: 1rem;
-  margin: 0;
-}
-
-.cart-dropdown .product h6 {
-  font-size: 0.8rem;
-  margin: 5px 0 0;
-  color: #666;
-}
-
-/* Basic styling for the button */
-.menu-toggle {
-  background-color: #000; /* Black to match the site's overall theme */
-  color: white;
-  padding: 12px 25px; /* Adjusted padding */
-  font-size: 1rem; /* Font size */
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  position: relative; /* Adjusted position */
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.menu-toggle:hover {
-  background-color: #333; /* Slightly lighter black for hover */
-}
-
-/* Hide the button when the menu is open */
-.menu-toggle.hidden {
-  display: none;
-}
-
-/* The sliding menu container */
+/* Slide Menu */
 .slide-menu {
-  position: fixed; /* Fixed position so it doesn’t affect other elements */
+  position: fixed;
   top: 0;
-  left: -300px; /* Ensure this value is enough to hide the menu */
+  left: -300px;
   width: 250px;
   height: 100%;
-  background-color: #222;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #000;
   transition: left 0.3s ease-in-out;
   z-index: 999;
   padding: 20px;
-  font-family: "Arial", sans-serif;
+  color: white;
 }
 
 .slide-menu.open {
-  left: 0; /* Moves the menu into view */
-}
-
-/* Styling the menu item text */
-.menu-item a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  display: block;
+  left: 0;
 }
 
 .Products-menu {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align the buttons to the left */
-  margin-top: 50px; /* Space between the first button and the top of the screen */
-  gap: 10px; /* Reduced space between each button for a tighter look */
-  padding-left: 0; /* Remove left padding to bring buttons closer to the edge */
+  gap: 20px;
 }
 
 .menu-item {
-  background-color: #000; /* Same black background as the "Close Menu" button */
+  padding: 15px;
+  background-color: #333;
   color: white;
-  padding: 12px 25px; /* Same padding as the "Close Menu" button */
-  width: calc(100% - 0px); /* Full width since we removed padding */
-  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 5px; /* Same border radius as the "Close Menu" button */
-  font-size: 1rem; /* Same font size as the "Close Menu" button */
   transition: background-color 0.3s ease;
 }
 
 .menu-item:hover {
-  background-color: #333; /* Same hover effect as the "Close Menu" button */
+  background-color: #555;
 }
 
-.menu-item a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  width: 100%; /* Ensure the link fills the entire button */
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #f1f1f1;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.footer h6 {
+  margin: 0;
+  letter-spacing: 1px;
+  font-weight: normal;
+  color: #999;
+}
+
+.footer button {
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 16px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer button:hover {
+  background-color: #444;
+  border-color: #f1f1f1;
+}
+
+.footer button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Spacing between buttons */
+.footer-buttons {
+  display: flex;
+  gap: 2px; /* Make the gap smaller */
+}
+
+.footer-buttons button {
+  margin: 0; /* Remove any margin around buttons */
 }

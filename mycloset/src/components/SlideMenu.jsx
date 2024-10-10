@@ -53,19 +53,19 @@ const SlideMenu = () => {
             onClick={() => handleClick("/content1")}
             className="menu-item"
           >
-            Content 1
+            WOMEN'S CLOTHES
           </button>
           <button
             onClick={() => handleClick("/content2")}
             className="menu-item"
           >
-            Content 2
+            MEN'S CLOTHES
           </button>
           <button
             onClick={() => handleClick("/content3")}
             className="menu-item"
           >
-            Content 3
+            ACCESORIES
           </button>
         </div>
       </div>
